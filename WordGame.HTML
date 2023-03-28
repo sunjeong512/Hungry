@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Guess the Word!</title>
+
+    <body>
+        <h1>Guess the Word!</h1>
+    
+        <p>정답은 5글자의 영어 단어입니다.
+
+        <p>생각하는 단어를 넣으시면 몇글자가 맞았는지 점수로 나옵니다!</p>
+        <p>위치까지 일치해야 1점 올라갑니다!</p>
+        </p>
+
+        <input type="text" id="user-word">
+        <input type="button" value="Check" onclick="calculateScore()">
+
+        <div id="result"></div>
+
+    <script>
+    function calculateScore() {
+      var userWord = document.getElementById("user-word").value;
+      var correctWord = "hello";
+  
+      var score = 0;
+      for (var i = 0; i < userWord.length; i++) {
+        if (i < correctWord.length && userWord[i] === correctWord[i]) {
+          score++;
+        }
+      }
+  
+      document.getElementById("result").innerHTML = "Your score: " + score;
+    }
+    </script>
+  </head>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Cheer Up!</title>
+    <script>
+      window.onload = function () {
+        let statusNum = 1;
+        const myParagraph = document.getElementById("my-paragraph");
+
+        myParagraph.innerHTML = "I have something to tell you";
+        myParagraph.style.color = "blue";
+
+        const addButton = document.getElementById("add-button");
+
+        addButton.addEventListener("click", function () {
+          const actionStatus = document.getElementById("action-status");
+
+          let clickStatus = document.createElement("div");
+          clickStatus.setAttribute("class", "status");
+          clickStatus.innerHTML = String(statusNum) + ": You are awesome!";
+          statusNum += 1;
+
+          actionStatus.appendChild(clickStatus);
+        });
+
+        const delButton = document.getElementById("del-button");
+
+        delButton.addEventListener("click", function () {
+          const status = document.getElementsByClassName("status");
+          status[status.length - 1].remove();
+          statusNum -= 1;
+        });
+      };
+    </script>
+  </head>
+  <body>
+    <h1>Have a nice day</h1>
+
+    <p id="my-paragraph">I have something to tell you</p>
+    <button id="add-button">Click-me!</button>
+    <button id="del-button">Hide-me!</button>
+    <p id="action-status">For you:</p>
+  </body>
+</html>
